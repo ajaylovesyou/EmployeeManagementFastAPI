@@ -56,7 +56,6 @@ def login(user: User):
         return {
             "message": "Invalid Password"
         }
-
     db.close()
 
     return {
