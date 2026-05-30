@@ -1,14 +1,17 @@
 from fastapi import FastAPI
 from auth import router
-from schemas import Emp, User, UpdateEmp
-from database import SessionLocal, EmpTable , UserTable
+from schemas import Emp,User,UpdateEmp
+from database import SessionLocal,EmpTable,UserTable
+
 
 app = FastAPI()
 app.include_router(router)
 
+
 # emps = []
 
-# Add Emp to database: 
+
+# Add Emp to database:
 @app.post("/add-emp")
 def add_emp(emp: Emp):
 
@@ -23,9 +26,10 @@ def add_emp(emp: Emp):
             "message": "ID Already Exists"
         }
 
+
     new_emp = EmpTable(
-        id=emp.id,
-        name=emp.name,
+        id=emp.id ,
+        name=emp.name ,
         age=emp.age
     )
 
@@ -70,6 +74,7 @@ def delete_emp(id: int):
     ).first()
 
     if emp:
+
         db.delete(emp)
         db.commit()
         db.close()
@@ -90,7 +95,7 @@ def update_emp(id: int, updated_emp: UpdateEmp):
         EmpTable.id == id
 
     ).first()
-
+    
     if emp:
         emp.name = updated_emp.name
         emp.age = updated_emp.age
