@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from auth import router
-from schemas import Emp,User,UpdateEmp
-from database import SessionLocal,EmpTable,UserTable
+from schemas import Emp , User , UpdateEmp
+from database import SessionLocal , EmpTable , UserTable
 
 
 app = FastAPI()
@@ -95,7 +95,7 @@ def update_emp(id: int, updated_emp: UpdateEmp):
         EmpTable.id == id
 
     ).first()
-    
+
     if emp:
         emp.name = updated_emp.name
         emp.age = updated_emp.age
