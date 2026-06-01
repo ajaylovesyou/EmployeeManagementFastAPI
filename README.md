@@ -70,7 +70,7 @@ EmployeeManagement/
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/ajaylovesyou/EmployeeManagement.git
+git clone https://github.com/ajaylovesyou/EmployeeManagementFastAPI.git
 cd EmployeeManagement
 ```
 
